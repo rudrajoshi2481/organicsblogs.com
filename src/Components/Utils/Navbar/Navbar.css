@@ -1,0 +1,15 @@
+.navbar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.navbar_brandname {
+  font-size: calc(2em + 0.5vh);
+  font-weight: 500;
+}
+/*# sourceMappingURL=Navbar.css.map */
