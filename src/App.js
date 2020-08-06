@@ -2,6 +2,7 @@ import React from 'react'
 import {BrowserRouter as Router,Switch,Route,Redirect} from 'react-router-dom'
 
 import './App.css'
+import firebase from 'firebase'
 
 import NavBar from './Components/Utils/Navbar/Navbar'
 import About from './Components/Pages/About/About'
@@ -12,13 +13,25 @@ import SpecificBlogs from './Components/Pages/SpecificBlogs/SpecBlogs'
 import Dashboard from './Components/Pages/Dashbord/Dashboard'
 import Login from './Components/Pages/Login/Login'
 
+import {Authcontext} from './Contexts/AuthContext'
 
-const ProtectedRoutes = ({component:Component,...rest}) => {
-  // Add firebase auth every time someone visits this route it will check
-  // return <Route {...rest} render={props => firebase.Auth() ? <Component {...props}/> : <Redirect to='/dashboard' />}/>
-}
+
 
 function App() {
+  
+  
+  const [authData,setAuthData] = React.useContext(Authcontext)
+  const [show,setShow] = React.useState(false)
+  React.useEffect(() => {
+      firebase.auth().onAuthStateChanged(e => {
+        if(e == null){
+            console.log('NULL');
+        }else{
+          setAuthData(true)
+        }
+      })    
+  },[])
+
   return (
     <div className="App">
       <Router >
@@ -30,7 +43,8 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/blogs" component={Blogs} />
         <Route exact path="/nameblog" component={SpecificBlogs} />
-        <Route exact path="/**" component={ErrorPage} />
+        <Route exact path="/dashboard" component={authData ? Dashboard : Login}/>
+        <Route  path="/**" component={ErrorPage} />
       </Switch>
     </Router>
     </div>
