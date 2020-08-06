@@ -43,7 +43,8 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/blogs" component={Blogs} />
         <Route exact path="/nameblog" component={SpecificBlogs} />
-        <Route exact path="/dashboard" component={authData ? Dashboard : Login}/>
+        {/* <Route exact path="/dashboard" component={authData ? Dashboard : Login}/> */}
+        <Route exact path="/dashboard" component={true ? Dashboard : Login}/>
         <Route  path="/**" component={ErrorPage} />
       </Switch>
     </Router>
