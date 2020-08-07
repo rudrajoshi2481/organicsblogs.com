@@ -15,5 +15,6 @@ import * as firebase from 'firebase';
 const app =  firebase.initializeApp(firebaseConfig);
 // const analytics =   firebase.analytics();
 const firebaseAuth = firebase.auth()
+const firestore = firebase.firestore()
 
-export default {app,firebaseAuth}
+export  {app,firebaseAuth,firestore}

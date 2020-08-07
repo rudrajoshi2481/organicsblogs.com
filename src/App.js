@@ -27,7 +27,7 @@ function App() {
         if(e == null){
             console.log('NULL');
         }else{
-          setAuthData(true)
+          setAuthData({...authData,login:true})
         }
       })    
   },[])
@@ -43,7 +43,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/blogs" component={Blogs} />
         <Route exact path="/nameblog" component={SpecificBlogs} />
-        {/* <Route exact path="/dashboard" component={authData ? Dashboard : Login}/> */}
+        {/* <Route exact path="/dashboard" component={authData.login ? Dashboard : Login}/> */}
         <Route exact path="/dashboard" component={true ? Dashboard : Login}/>
         <Route  path="/**" component={ErrorPage} />
       </Switch>

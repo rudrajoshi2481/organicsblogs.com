@@ -1,1 +1,8 @@
-/* No CSS *//*# sourceMappingURL=MainEditor.css.map */
+.footer-editor {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 5%;
+  right: 0;
+  padding-right: 5%;
+}
+/*# sourceMappingURL=MainEditor.css.map */
