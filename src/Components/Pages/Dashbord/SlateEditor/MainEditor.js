@@ -108,7 +108,7 @@ function MainEditor() {
                 <Editable 
                     renderLeaf={renderLeaf}
                     onKeyDown={e => {
-                        e.preventDefault()
+                        // e.preventDefault()
                         console.log('Shortcut Key');
                     }}
                 />

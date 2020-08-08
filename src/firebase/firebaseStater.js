@@ -12,9 +12,13 @@ import * as firebase from 'firebase';
     measurementId: "G-LGJKVMVP3M"
   };
   // Initialize Firebase
-const app =  firebase.initializeApp(firebaseConfig);
-// const analytics =   firebase.analytics();
-const firebaseAuth = firebase.auth()
-const firestore = firebase.firestore()
+export const app = firebase.initializeApp(firebaseConfig);
 
-export  {app,firebaseAuth,firestore}
+
+// const analytics =   firebase.analytics();
+export const firebaseAuth = firebase.auth()
+// const firebaseAuth = app().auth()
+export const firestore = firebase.firestore()
+// const firestore = app().firestore()
+
+// export {firebaseAuth,firestore}

@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import {auth} from '../../../firebase/firebaseStater'
+import {app} from '../../../firebase/firebaseStater'
 import {Authcontext} from '../../../Contexts/AuthContext'
 import firebase from 'firebase'
 
@@ -10,6 +10,8 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 
 function Login() {
+
+  
 
     const [authData,setAuthData] = React.useContext(Authcontext)
 
@@ -23,6 +25,17 @@ function Login() {
 
     
        
+          React.useEffect(() => {
+    firebase.auth().onAuthStateChanged(e => {
+      if(e === null){
+          console.log('NULL');
+      }else{
+        setAuthData({...authData,login:true})
+      }
+    })    
+
+},[])
+
     
 
     return (
@@ -31,7 +44,7 @@ function Login() {
             
             <h1>Login</h1>
             <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
-            <button onClick={() => firebase.auth().signOut()}>Log Out</button>
+            <button onClick={(e) => {firebase.auth().signOut()}}>Log Out</button>
         </div>
     )
 }

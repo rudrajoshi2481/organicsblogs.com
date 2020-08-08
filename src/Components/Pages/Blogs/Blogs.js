@@ -1,13 +1,14 @@
 import React from 'react'
 import './css/Blogs.css'
-import {Card,CardActionArea,CardMedia,CardContent,Typography,CardActions,Button,Grid} from '@material-ui/core'
+import {Grid} from '@material-ui/core'
 import Cards from '../../Utils/Cards/Card'
 function Blogs() {
     return (
         <div>
-            <h1>blogs</h1>
             <div className="Cards-list-allblogs">
-           
+            <h1>All Blogs</h1>
+           <Grid container spacing={3} >
+               
            <Cards />
             <Cards />
             <Cards />
@@ -20,6 +21,7 @@ function Blogs() {
             <Cards />
             <Cards />
            
+           </Grid>
             </div>
         </div>
     )
