@@ -37,9 +37,9 @@ function App() {
         
         <Route path="/blogs" component={Blogs} />
         
-        <Route exact path="/nameblog" component={SpecificBlogs} />
-        
         <Route exact path="/dashboard" component={authData.login ? Dashboard : Login}/>
+        <Route exact path={`/:blog`} component={SpecificBlogs} />
+        
         {/* <Route exact path="/dashboard" component={true ? Dashboard : Login}/> */}
         
         <Route exact path="/" component={HomePage} />

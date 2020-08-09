@@ -6,6 +6,7 @@ export const Authcontext = React.createContext()
 export const AuthcontextProvider = props => {
 
     const [authData,setAuthData] = React.useState({
+        userData:'',
         login:false,
         editorData:[
             {

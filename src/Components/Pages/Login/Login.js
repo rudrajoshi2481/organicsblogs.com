@@ -30,7 +30,12 @@ function Login() {
       if(e === null){
           console.log('NULL');
       }else{
-        setAuthData({...authData,login:true})
+          console.log(e.email);
+          
+        // const data = {userData:e.email,login:true}  
+        // setAuthData({...authData,userData:e.email})  
+        // setAuthData({...authData,login:true})
+        setAuthData({...authData,userData:e.email,login:true})
       }
     })    
 
